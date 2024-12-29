@@ -1,0 +1,57 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
+
+# Caches
+*.cache
+*.pytest_cache/
+__pycache__/
+
+# Testing files
+.coverage
+*.cover
+coverage.xml
+*.pytest_cache/
+nosetests.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*.~ 
+
+# Packaging
+*.wheel
+*.egg
+MANIFEST
+
+# Docker-related
+*.pid
+
+# System files
+Thumbs.db
+Desktop.ini
