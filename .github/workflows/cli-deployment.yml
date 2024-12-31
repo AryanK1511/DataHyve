@@ -5,11 +5,11 @@ on:
     branches:
       - main
       - issue-1
-    paths:
-      - 'cli/**' 
-  pull_request:
-    paths:
-      - 'cli/**' 
+#     paths:
+#       - 'cli/**' 
+#   pull_request:
+#     paths:
+#       - 'cli/**' 
 
 jobs:
   install_dependencies:
