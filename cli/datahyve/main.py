@@ -7,7 +7,6 @@ from datahyve.constants import PID_FILE
 from datahyve.utils.configfiles import (
     check_config_exists,
     create_config_file,
-    get_config_file_content,
     remove_config_file,
 )
 from datahyve.utils.streaming import get_pid, run_streaming
@@ -15,12 +14,6 @@ from datahyve.utils.streaming import get_pid, run_streaming
 # ========== Initialize typer application ==========
 
 app = typer.Typer()
-
-
-@app.command()
-def test():
-    check_config_exists()
-    print(get_config_file_content())
 
 
 # ========== Commands ==========
