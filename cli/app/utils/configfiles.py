@@ -41,20 +41,31 @@ def create_config_file():
 
 def remove_config_file():
     """Removes the .datahyve.toml configuration file."""
-    if CONFIG_FILE_PATH.exists():
-        try:
-            CONFIG_FILE_PATH.unlink()
-            console.print(
-                f"Configuration file removed from {CONFIG_FILE_PATH}",
-                style="bold green",
-            )
-        except Exception as e:
-            err_console.print(
-                f"Error removing configuration file: {e}", style="bold red"
-            )
-    else:
-        err_console.print(
-            "Configuration file not found. To create the configuration file, run the following command:",
-            style="bold yellow",
+    try:
+        CONFIG_FILE_PATH.unlink()
+        console.print(
+            f"Configuration file removed from {CONFIG_FILE_PATH}",
+            style="bold green",
         )
-        console.print("  datahyve create-config", style="bold cyan")
+    except Exception as e:
+        err_console.print(f"Error removing configuration file: {e}", style="bold red")
+
+
+def check_config_exists():
+    """Check if the config file exists"""
+    if not CONFIG_FILE_PATH.exists():
+        err_console.print(
+            "[bold red]Configuration file not found. Please create the configuration file first using 'create-config' command.[/bold red]"
+        )
+        raise typer.Exit()
+
+
+def get_config_file_content():
+    """Reads the configuration file and returns its content as a dictionary."""
+    try:
+        with open(CONFIG_FILE_PATH, "r") as f:
+            config_data = toml.load(f)
+        return config_data
+    except Exception as e:
+        err_console.print(f"[bold red]Error reading configuration file: {e}[/bold red]")
+        raise typer.Exit()

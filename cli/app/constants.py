@@ -8,7 +8,10 @@ CONFIG_FILE_PATH = Path.home() / CONFIG_FILE_NAME
 
 # This will be the default content of the config file that this tool creates
 DEFAULT_CONFIG_FILE_CONTENT = {
-    "credentials": {"username": "your_username_here"},
+    "credentials": {
+        "username": "your_username_here",
+        "unique_server_name": "your_unique_server_name_here",
+    },
     "env_vars": {
         "SNOWFLAKE_USER": "dummy_username123",
         "SNOWFLAKE_PASSWORD": "dummyPassword123!",
@@ -18,3 +21,6 @@ DEFAULT_CONFIG_FILE_CONTENT = {
 
 # This is the file where we would be tracking the streaming process
 PID_FILE = "stream_pid.txt"
+
+# This is the frequency of the metrics stream to the snowflake DB (in seconds)
+METRICS_STREAM_INTERVAL_SECONDS = 60
