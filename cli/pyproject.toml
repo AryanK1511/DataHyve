@@ -21,6 +21,7 @@ typer = "^0.15.1"
 snowflake-connector-python = "^3.12.4"
 toml = "^0.10.2"
 python-dotenv = "^1.0.1"
+psutil = "^6.1.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
