@@ -54,15 +54,12 @@ jobs:
         working-directory: cli
         run: |
           poetry install
-
-      - name: Build and Publish to PyPI
-        working-directory: cli  
-        run: |
-          poetry version patch
-          poetry build
-          poetry publish
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}  
+    
+      # Ref Doc: https://github.com/marketplace/actions/publish-python-poetry-package
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v2.0
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
 
       - name: Notify success
         run: echo "Deployment successful!"
