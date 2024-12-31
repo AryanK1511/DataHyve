@@ -2,8 +2,8 @@ name: DataHyve CLI CD
 
 on:
   push:
-    tags:
-      - 'v*' 
+    branches:
+      - main 
     paths:
       - 'cli/**'
 
