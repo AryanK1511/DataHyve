@@ -27,14 +27,14 @@ def test():
 
 
 @app.command()
-def stream_metrics():
+def start():
     """Streams the server metrics to the DataHyve cloud database instance on Snowflake"""
     check_config_exists()
     run_streaming()
 
 
 @app.command()
-def stop_stream():
+def stop():
     """Stops the background streaming process."""
     check_config_exists()
     pid = get_pid()

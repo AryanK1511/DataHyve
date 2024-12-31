@@ -2,14 +2,10 @@ name: DataHyve CLI CD
 
 on:
   push:
-    branches:
-      - main
-      - issue-1
-#     paths:
-#       - 'cli/**' 
-#   pull_request:
-#     paths:
-#       - 'cli/**' 
+    tags:
+      - 'v*' 
+    paths:
+      - 'cli/**'
 
 jobs:
   install_dependencies:
