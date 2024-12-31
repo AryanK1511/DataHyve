@@ -59,6 +59,7 @@ jobs:
       - name: Build and publish to pypi
         uses: JRubics/poetry-publish@v2.0
         with:
+          package_directory: "cli"
           pypi_token: ${{ secrets.PYPI_TOKEN }}
 
       - name: Notify success
