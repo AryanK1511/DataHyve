@@ -1,23 +1,31 @@
 [tool.poetry]
 name = "datahyve"
-version = "0.1.0"
+version = "0.0.2"
 description = "Server metrics in real-time with RAG-powered insights 🚀"
 authors = ["Aryan Khurana <aryankhurana1511@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://pypi.org/project/datahyve"
+repository = "https://github.com/AryanK1511/DataHyve"
+documentation = "https://github.com/AryanK1511/DataHyve/blob/main/README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
-packages = [{include = "app"}]
+packages = [{include = "datahyve"}]
+include = ["assets/main-banner.png"]
 
 [tool.poetry.scripts]
-dh = "app.main:app"
+datahyve = "datahyve.main:app"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.9"
 typer = "^0.15.1"
+snowflake-connector-python = "^3.12.4"
+toml = "^0.10.2"
+python-dotenv = "^1.0.1"
+psutil = "^6.1.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"

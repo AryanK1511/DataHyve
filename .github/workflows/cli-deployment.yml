@@ -1,0 +1,62 @@
+name: DataHyve CLI CD
+
+on:
+  push:
+    tags:
+      - 'v*' 
+    paths:
+      - 'cli/**'
+
+jobs:
+  install_dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.local/bin:$PATH"
+
+      - name: Install dependencies
+        working-directory: cli  
+        run: |
+          poetry install
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: install_dependencies
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="$HOME/.local/bin:$PATH"
+
+      - name: Install dependencies
+        working-directory: cli
+        run: |
+          poetry install
+    
+      # Ref Doc: https://github.com/marketplace/actions/publish-python-poetry-package
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v2.0
+        with:
+          package_directory: "cli"
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Notify success
+        run: echo "Deployment successful!"

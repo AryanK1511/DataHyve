@@ -55,3 +55,7 @@ MANIFEST
 # System files
 Thumbs.db
 Desktop.ini
+
+# Additional Program Related Files
+stream_output.txt
+stream_pid.txt
