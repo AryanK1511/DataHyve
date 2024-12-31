@@ -1,13 +1,12 @@
 import logging
 import time
 
-from app.constants import METRICS_STREAM_INTERVAL_SECONDS
+from app.constants import LOG_FILE, METRICS_STREAM_INTERVAL_SECONDS
 from app.snowflake.connection import connect_to_snowflake
 from app.snowflake.helpers import collect_metrics, create_table, insert_metrics
 from app.utils.configfiles import get_config_file_content
 
 # Configure logging
-LOG_FILE = "datahyve_metrics.log"
 logging.basicConfig(
     filename=LOG_FILE,
     level=logging.INFO,
