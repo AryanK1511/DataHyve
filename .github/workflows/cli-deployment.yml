@@ -60,7 +60,7 @@ jobs:
         run: |
           poetry version patch
           poetry build
-          poetry publish --build --repository pypi
+          poetry publish
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}  
 
