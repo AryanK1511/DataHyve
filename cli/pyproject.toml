@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "datahyve"
-version = "0.0.1"
+version = "0.0.2"
 description = "Server metrics in real-time with RAG-powered insights 🚀"
 authors = ["Aryan Khurana <aryankhurana1511@gmail.com>"]
 license = "MIT"
