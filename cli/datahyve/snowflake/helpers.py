@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 
 import psutil
-from app.snowflake.queries import (
+from datahyve.snowflake.queries import (
     create_server_metrics_table_query,
     insert_server_metrics_query,
 )

@@ -1,7 +1,7 @@
 import toml
 import typer
-from app.config import console, err_console
-from app.constants import CONFIG_FILE_PATH, DEFAULT_CONFIG_FILE_CONTENT
+from datahyve.config import console, err_console
+from datahyve.constants import CONFIG_FILE_PATH, DEFAULT_CONFIG_FILE_CONTENT
 
 
 def create_config_file():

@@ -1,8 +1,9 @@
 import os
 import subprocess
+from pathlib import Path
 
-from app.config import console
-from app.constants import PID_FILE
+from datahyve.config import console
+from datahyve.constants import PID_FILE
 
 
 def get_pid():
@@ -21,13 +22,25 @@ def save_pid(pid: int):
 
 def run_streaming():
     """Run the streaming task as an asynchronous subprocess."""
+    # Define the absolute path to the directory where 'streamer.py' is located
+    script_directory = (
+        Path(__file__).resolve().parent.parent / "snowflake"
+    )  # Going two levels up to the root directory
+
+    if not script_directory.exists():
+        console.print(
+            f"[bold red]Error: Directory {script_directory} does not exist![/bold red]"
+        )
+        return
+
     process = subprocess.Popen(
-        ["python", "app/snowflake/streamer.py"],
+        ["python", "streamer.py"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        # Prevents child process from being terminated when the parent exits
+        cwd=script_directory,  # Ensure the process runs in the correct directory
         preexec_fn=os.setpgrp,
     )
+
     save_pid(process.pid)
 
     console.print(

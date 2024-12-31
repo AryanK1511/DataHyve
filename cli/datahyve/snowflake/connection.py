@@ -1,5 +1,5 @@
 import snowflake.connector
-from app.config import SNOWFLAKE_CONFIG
+from datahyve.config import SNOWFLAKE_CONFIG
 
 
 # Ref Doc: https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect

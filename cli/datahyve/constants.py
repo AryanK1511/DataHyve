@@ -20,10 +20,10 @@ DEFAULT_CONFIG_FILE_CONTENT = {
 }
 
 # This is the file where we would be tracking the streaming process
-PID_FILE = "stream_pid.txt"
+PID_FILE = Path.home() / "stream_pid.txt"
 
 # This is the frequency of the metrics stream to the snowflake DB (in seconds)
 METRICS_STREAM_INTERVAL_SECONDS = 60
 
 # This is where all the logs for this CLI tool will be stored
-LOG_FILE = "datahyve_metrics.log"
+LOG_FILE = Path.home() / "datahyve_metrics.log"

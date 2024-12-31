@@ -2,15 +2,15 @@ import os
 import signal
 
 import typer
-from app.config import console, err_console
-from app.constants import PID_FILE
-from app.utils.configfiles import (
+from datahyve.config import console, err_console
+from datahyve.constants import PID_FILE
+from datahyve.utils.configfiles import (
     check_config_exists,
     create_config_file,
     get_config_file_content,
     remove_config_file,
 )
-from app.utils.streaming import get_pid, run_streaming
+from datahyve.utils.streaming import get_pid, run_streaming
 
 # ========== Initialize typer application ==========
 
