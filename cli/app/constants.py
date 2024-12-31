@@ -15,3 +15,6 @@ DEFAULT_CONFIG_FILE_CONTENT = {
         "SNOWFLAKE_ACCOUNT": "dummy_account12345",
     },
 }
+
+# This is the file where we would be tracking the streaming process
+PID_FILE = "stream_pid.txt"
